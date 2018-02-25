@@ -35,6 +35,13 @@ Swift_DependencyContainer::getInstance()
     ->asNewInstanceOf('Swift_Transport_SpoolTransport')
     ->withDependencies(['transport.eventdispatcher'])
 
+    ->register('transport.directsmtp')
+    ->asNewInstanceOf('Swift_Transport_DirectEsmtpTransport')
+    ->withDependencies([
+        'transport.smtp',
+        'address.idnaddressencoder',
+    ])
+
     ->register('transport.null')
     ->asNewInstanceOf('Swift_Transport_NullTransport')
     ->withDependencies(['transport.eventdispatcher'])
