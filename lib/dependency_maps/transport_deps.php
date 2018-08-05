@@ -68,6 +68,9 @@ Swift_DependencyContainer::getInstance()
     ->asNewInstanceOf('Swift_Transport_Esmtp_EightBitMimeHandler')
     ->addConstructorValue('8BITMIME')
 
+    ->register('transport.requiretlshandler')
+    ->asNewInstanceOf('Swift_Transport_Esmtp_RequireTlsHandler')
+
     ->register('transport.crammd5auth')
     ->asNewInstanceOf('Swift_Transport_Esmtp_Auth_CramMd5Authenticator')
 
